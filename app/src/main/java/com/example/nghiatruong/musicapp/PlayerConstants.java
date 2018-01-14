@@ -14,7 +14,7 @@ import android.os.Handler;
 public class PlayerConstants {
     //List of songs
     public static ArrayList<Song> SONG_LIST=new ArrayList<Song>();
-    //song namuber which is playing right now
+    //song number which is playing right now
     public static int SONG_NUMBER=0;
     //song is playing or pause
     public static boolean SONG_PAUSE=true;
@@ -27,7 +27,7 @@ public class PlayerConstants {
     //showing song progress handler define in main act, audio act
     public static Handler PROGRESSBAR_HANDLER;
     public static Boolean IS_PROGRESSBAR_SEEK=false;
-    public static int CURRENT_POSISION;
+    public static int CURRENT_POSITION;
 
     public static Handler SONG_NUMBER_CHANGED;
     public static int SONG_REPEAT=0;

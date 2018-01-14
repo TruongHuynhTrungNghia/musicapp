@@ -13,7 +13,6 @@ import com.example.nghiatruong.musicapp.SongService;
  */
 
 public class Controls  {
-    static String LOG_CLASS = "Controls";
     public static void playControl(Context context) {
 
         sendMessage(context.getResources().getString(R.string.play));

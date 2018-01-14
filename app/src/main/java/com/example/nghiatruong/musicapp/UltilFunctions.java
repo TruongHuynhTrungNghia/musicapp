@@ -50,6 +50,7 @@ public class UltilFunctions {
 
     public static boolean isServiceRunning(String serviceName, Context context){
         ActivityManager manager =(ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        assert manager != null;
         for(ActivityManager.RunningServiceInfo serviceInfo: manager.getRunningServices(Integer.MAX_VALUE))
         {
             if(serviceName.equals(serviceInfo.service.getClassName()))
@@ -93,24 +94,19 @@ public class UltilFunctions {
         return songsArrayList;
     }
 
-//    public static void deleteSongs(Context context,int songNumber){
-//        Uri uir= MediaStore.Audio.Playlists.Members.getContentUri()
-//    }
 
     //get Album image
     public static Bitmap getAlbumImg(Context context,long albumID){
         Bitmap bitmap=null;
         BitmapFactory.Options options=new BitmapFactory.Options();
         try{
-            final Uri imgUri=Uri.parse("content://media/external/audio/albumImg");
+            final Uri imgUri=Uri.parse("content://media/external/audio/albumart");
             Uri uri= ContentUris.withAppendedId(imgUri,albumID);
             ParcelFileDescriptor parcelFileDescriptor=context.getContentResolver().openFileDescriptor(uri,"r");
             if(parcelFileDescriptor!=null)
             {
                 FileDescriptor fileDescriptor=parcelFileDescriptor.getFileDescriptor();
                 bitmap=BitmapFactory.decodeFileDescriptor(fileDescriptor,null,options);
-                parcelFileDescriptor=null;
-                fileDescriptor=null;
             }
         } catch (Error error) {
         }catch (Exception e){
@@ -128,11 +124,11 @@ public class UltilFunctions {
         catch (Exception e){}
             return bitmap;
     }
-    //change miniseconds to String
-    public static String getDuration (long miniseconds){
-        long sec=(miniseconds/1000)%60;
-        long min=(miniseconds/(1000*60))%60;
-        long hour=miniseconds/(60*60*1000);
+    //change milliSecond to String
+    public static String getDuration (long milliSecond){
+        long sec=(milliSecond/1000)%60;
+        long min=(milliSecond/(1000*60))%60;
+        long hour=milliSecond/(60*60*1000);
         String s ;
         String m;
         if(sec<10){

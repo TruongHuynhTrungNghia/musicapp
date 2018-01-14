@@ -5,13 +5,13 @@ package com.example.nghiatruong.musicapp;
  */
 
 public class Song {
-    String title;
-    String artist;
-    String album;
-    String path;
-    long duration;
+    private String title;
+    private String artist;
+    private String album;
+    private String path;
+    private long duration;
     long albumID;
-    String composer;
+    private String composer;
 
     @Override
     public String toString()

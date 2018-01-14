@@ -2,7 +2,6 @@ package com.example.nghiatruong.musicapp;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,7 +14,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.graphics.Bitmap;
@@ -69,23 +67,23 @@ public class AudioPlayerActivity extends AppCompatActivity{
         };
     }
     public void getView() {
-        btnBack=(Button)findViewById(R.id.btnBack);
-        btnPlay=(Button)findViewById(R.id.btnPlay);
-        btnNext=(Button)findViewById(R.id.btnNext);
-        btnPause =(Button)findViewById(R.id.btnPause);
-        btnShuffle=(Button)findViewById(R.id.btnShuffle);
-        btnUnShuffle=(Button)findViewById(R.id.btnUnShuffle);
-        btnRepeat=(Button)findViewById(R.id.repeat);
+        btnBack= findViewById(R.id.btnBack);
+        btnPlay= findViewById(R.id.btnPlay);
+        btnNext= findViewById(R.id.btnNext);
+        btnPause = findViewById(R.id.btnPause);
+        btnShuffle= findViewById(R.id.btnShuffle);
+        btnUnShuffle= findViewById(R.id.btnUnShuffle);
+        btnRepeat= findViewById(R.id.repeat);
 
-        textViewAlbumArtist=(TextView)findViewById(R.id.textAlbumArtist);
-        textViewBufferDuration=(TextView)findViewById(R.id.textBufferDuration);
-        textViewDuration=(TextView)findViewById(R.id.textDuration);
-        textViewComposer=(TextView)findViewById(R.id.textComposer);
-        textViewNowPlaying=(TextView)findViewById(R.id.textNowPlaying);
+        textViewAlbumArtist= findViewById(R.id.textAlbumArtist);
+        textViewBufferDuration= findViewById(R.id.textBufferDuration);
+        textViewDuration= findViewById(R.id.textDuration);
+        textViewComposer= findViewById(R.id.textComposer);
+        textViewNowPlaying= findViewById(R.id.textNowPlaying);
 
-        linearLayoutPlayer=(LinearLayout)findViewById(R.id.linerLayoutPlayer);
+        linearLayoutPlayer= findViewById(R.id.linerLayoutPlayer);
 
-        seekBar=(SeekBar)findViewById(R.id.seekBar);
+        seekBar= findViewById(R.id.seekBar);
 
     }
 
@@ -136,7 +134,7 @@ public class AudioPlayerActivity extends AppCompatActivity{
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(final SeekBar seekBar, int progress, boolean fromUser) {
-                PlayerConstants.CURRENT_POSISION=progress;
+                PlayerConstants.CURRENT_POSITION =progress;
             }
 
             @Override
@@ -151,7 +149,6 @@ public class AudioPlayerActivity extends AppCompatActivity{
         });
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -164,9 +161,8 @@ public class AudioPlayerActivity extends AppCompatActivity{
         }
         changeButton();
         changeShuffle();
+        changeRepeat();
     }
-
-
 
     private static void updateUI() {
         try{
